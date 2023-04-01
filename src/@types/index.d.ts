@@ -16,5 +16,5 @@ type CreditsScreenProp = RouteProp<RootDrawerParamList, 'Credits'>;
 
 type CreditsScreenProps = {
     navigation: CreditsScreenNavigationProp;
-    route: CreditsScreenRouteProp;
+    route: CreditsScreenProp;
 };
