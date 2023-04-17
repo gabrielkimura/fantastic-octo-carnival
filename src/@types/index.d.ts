@@ -1,6 +1,7 @@
 type RootDrawerParamList = {
     Home: undefined;
     Credits: undefined;
+    Tutorials: undefined;
 };
 
 type HomeScreenRouteProp = RouteProp<RootDrawerParamList, 'Home'>;
@@ -18,3 +19,12 @@ type CreditsScreenProps = {
     navigation: CreditsScreenNavigationProp;
     route: CreditsScreenProp;
 };
+
+type TutorialsScreenNavigationProp = DrawerNavigationProp<RootDrawerParamList, 'Tutorials'>;
+type TutorialsScreenProp = RouteProp<RootDrawerParamList, 'Tutorials'>;
+
+type TutorialsScreenProps = {
+    navigation: TutorialsScreenNavigationProp;
+    route: TutorialsScreenProp;
+};
+
