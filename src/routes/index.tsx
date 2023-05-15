@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
@@ -7,9 +7,14 @@ import { NavigationContainer } from '@react-navigation/native';
 
 import HomeScreen from '../screens/HomeScreen';
 import CreditsScreen from '../screens/CreditsScreen';
+import FirstAidKitPage from '../screens/FirstAidKitScreen';
+
 import { Pressable, TouchableOpacity, View, Text, Linking } from 'react-native';
 import TutorialsScreen from '../screens/TutorialsScreen';
 import { DrawerContentComponentProps } from '@react-navigation/drawer';
+import { createStackNavigator } from '@react-navigation/stack';
+import FirstAidKitScreen from '../screens/FirstAidKitScreen';
+
 
 export default function Navigation() {
   return (
@@ -19,11 +24,25 @@ export default function Navigation() {
   );
 }
 
+const Stack = createStackNavigator();
+function RootStackNavigator() {
+  return (
+    <Stack.Navigator>
+      <Stack.Screen
+        name="FirstAidKit"
+        component={FirstAidKitScreen}
+        options={{ title: 'Kit de Primeiros Socorros'}}
+        
+      />
+    </Stack.Navigator>
+  );
+}
+
 function CustomDrawerContent(props: DrawerContentComponentProps) {
   return (
     <DrawerContentScrollView {...props}>
       <DrawerItemList {...props} />
-      <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccc', marginVertical: 10, marginTop: '150%' }} />
+      <View style={{ borderBottomWidth: 1, borderBottomColor: '#ccc', marginVertical: 10, marginTop: '130%' }} />
       <Text style={{ marginHorizontal: 16, marginTop: 5, fontSize: 10, color: '#888' }}>
         Este é um software de código aberto licenciado sob a Licença MIT. © 2023
         <Text
@@ -106,6 +125,28 @@ export function RootDrawerNavigator() {
           headerStyle: {
             backgroundColor: '#cc2229',
           },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+          headerRight: () => (
+            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+              <MaterialIcons name="logout" size={24} color="#fff" style={{ marginRight: 10}}/>
+            </TouchableOpacity>
+          ),
+        })}
+      />
+      <Drawer.Screen
+        name="FirstAidKit"
+        component={FirstAidKitScreen}
+        options={({ navigation }) => ({
+          drawerIcon: ({ color }) => (
+            <FontAwesome5 name="briefcase-medical" size={22} color={color} />
+          ),
+          headerStyle: {
+            backgroundColor: '#cc2229',
+          },
+          title: 'Primeiros Socorros',
           headerTintColor: '#fff',
           headerTitleStyle: {
             fontWeight: 'bold',

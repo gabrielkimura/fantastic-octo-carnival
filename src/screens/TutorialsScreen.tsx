@@ -3,16 +3,22 @@ import { StyleSheet, View, Text, TouchableOpacity, Image, ImageSourcePropType, L
 import { ScrollView } from 'react-native-gesture-handler';
 
 import { tutorials, Tutorial} from '../assets/data';
+import { useNavigation } from '@react-navigation/native';
 
 export default function Tutorials() {
-  
-const handlePress = (link: string) => {
-  const url = `${link}`;
-  Linking.openURL(url)
-    .catch(() => {
-      console.log(`Não foi possível abrir o link ${url}`);
-    });
-};
+  const navigation = useNavigation();
+
+  const handlePress = (link: string, extend: boolean) => {
+    if (extend) {
+      navigation.navigate('FirstAidKit');
+    } else {
+      const url = `${link}`;
+      Linking.openURL(url)
+        .catch(() => {
+          console.log(`Não foi possível abrir o link ${url}`);
+        });
+    }
+  };
 
   const renderTutorial = (tutorial: Tutorial) => {
     return (
@@ -20,11 +26,11 @@ const handlePress = (link: string) => {
         key={tutorial.id}
         style={styles.card}
         activeOpacity={0.8}
-        onPress={() => handlePress(tutorial.link)}
+        onPress={() => handlePress(tutorial.link, tutorial.extend)}
       >
         <Image
           source={tutorial.img}
-          style={[styles.image, {width: tutorial.style.width, height: tutorial.style.height,}]}
+          style={[styles.image, { width: tutorial.style.width, height: tutorial.style.height, }]}
         />
         <Text style={styles.title}>{tutorial.title}</Text>
         <Text style={styles.description}>{tutorial.description}</Text>
