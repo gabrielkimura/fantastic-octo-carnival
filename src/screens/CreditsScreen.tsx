@@ -4,20 +4,10 @@ import { View, Text, StyleSheet, Image } from 'react-native';
 function CreditsScreen({ navigation }: CreditsScreenProps) {
   return (
     <View style={styles.container}>
-      <View style={styles.logoContainer}>
-        <Image
-          source={require('../assets/images/Ciencia_da_Computacao.jpg')}
-          style={{ width: 350, height: 100 }}
-        />
-      </View>
-
-      <View style={styles.separator} />
-
+    
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Alunos:</Text>
-        <Text style={styles.text}>Gabriel de Brito Souza</Text>
-        <Text style={styles.text}>Gabriel Massau Kimura da Silva</Text>
-        <Text style={styles.text}>João Pedro Lopes Lenhato</Text>
+        <Text style={styles.sectionTitle}>Professor(a) responsável:</Text>
+        <Text style={styles.text}>Prof. Dr. Elvio Gilberto da Silva</Text>
       </View>
 
       <View style={styles.section}>
@@ -26,9 +16,36 @@ function CreditsScreen({ navigation }: CreditsScreenProps) {
       </View>
 
       <View style={styles.section}>
-        <Text style={styles.sectionTitle}>Professor(a) responsável:</Text>
-        <Text style={styles.text}>Prof. Dr. Elvio Gilberto da Silva</Text>
+        <Text style={styles.sectionTitle}>Alunos:</Text>
+        <Text style={styles.text}>Gabriel de Brito Souza</Text>
+        <Text style={styles.text}>Gabriel Massao Kimura da Silva</Text>
+        <Text style={styles.text}>João Pedro Lopes Lenharo</Text>
       </View>
+
+      <View style={styles.separator} />
+
+      <View style = {styles.section}>
+        <Text style = {styles.text}>Realizado por:</Text>
+      </View>
+
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../assets/images/Ciencia_da_Computacao.jpg')}
+          style={{ width: 350, height: 100 }}
+        />
+      </View>
+
+      <View style = {styles.section}>
+        <Text style = {styles.text}>Apoio:</Text>
+      </View>
+
+      <View style={styles.logoContainer}>
+        <Image
+          source={require('../assets/images/monolitica-pastoral-nova.png')}
+          style={{ width: 350, height: 100 }}
+        />
+      </View>
+      
     </View>
 
     

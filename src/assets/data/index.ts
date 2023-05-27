@@ -51,7 +51,7 @@ export const tutorials: Tutorial[] = [
       id: 5,
       title: 'Manobra de Heimlich',
       description: 'Aprenda como realizar a manobra de Heimlich para ajudar alguém que esteja engasgado.',
-      img: require('../images/hipoglicemia.png') ,
+      img: require('../images/heimlich.png') ,
       link: 'https://www.youtube.com/watch?v=tC-OiNlHpcI',
       style: {width: 150, height: 150},
       extend: false
