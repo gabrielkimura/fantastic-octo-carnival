@@ -1,10 +1,10 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 function CreditsScreen({ navigation }: CreditsScreenProps) {
   return (
-    <View style={styles.container}>
-    
+    <View style={styles.container}>    
       <View style={styles.section}>
         <Text style={styles.sectionTitle}>Professor(a) responsável:</Text>
         <Text style={styles.text}>Prof. Dr. Elvio Gilberto da Silva</Text>
@@ -31,7 +31,7 @@ function CreditsScreen({ navigation }: CreditsScreenProps) {
       <View style={styles.logoContainer}>
         <Image
           source={require('../assets/images/Ciencia_da_Computacao.jpg')}
-          style={{ width: 350, height: 100 }}
+          style={styles.logo}
         />
       </View>
 
@@ -42,13 +42,10 @@ function CreditsScreen({ navigation }: CreditsScreenProps) {
       <View style={styles.logoContainer}>
         <Image
           source={require('../assets/images/monolitica-pastoral-nova.png')}
-          style={{ width: 350, height: 100 }}
+          style={styles.logo}
         />
-      </View>
-      
-    </View>
-
-    
+      </View>      
+  </View>
   );
 }
 
@@ -58,16 +55,16 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     paddingHorizontal: 20,
+    padding: 10,
   },
   logoContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: -20,
-    marginTop: 10,
+    marginTop: -20,
   },
   logo: {
-    width: 150,
-    height: 60,
+    width: 260,
+    height: 80,
     marginHorizontal: 10,
   },
   separator: {

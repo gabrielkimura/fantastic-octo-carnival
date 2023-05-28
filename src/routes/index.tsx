@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { FontAwesome5, MaterialIcons } from '@expo/vector-icons';
+import { FontAwesome5, MaterialIcons, Entypo } from '@expo/vector-icons';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import { createDrawerNavigator, DrawerContentScrollView, DrawerItemList } from '@react-navigation/drawer';
@@ -58,6 +58,12 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
 
 const Drawer = createDrawerNavigator();
 export function RootDrawerNavigator() {
+  const handleEmergencyCall = () => {
+    const phoneNumber = '190'; // Número de emergência
+
+    Linking.openURL(`tel:${phoneNumber}`);
+  };
+
   return(
   <Drawer.Navigator
       initialRouteName="Home"
@@ -83,9 +89,10 @@ export function RootDrawerNavigator() {
             <Pressable
               style={({ pressed }) => ({
                 opacity: pressed ? 0.5 : 1,
-              })}>
-              <MaterialIcons
-                name='lightbulb'
+              })}
+              onPress={handleEmergencyCall}>
+              <Entypo
+                name='phone'
                 size={25}
                 color={'yellow'}
                 style={{ marginRight: 15 }}
