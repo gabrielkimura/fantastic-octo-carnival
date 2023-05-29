@@ -59,7 +59,7 @@ function CustomDrawerContent(props: DrawerContentComponentProps) {
 const Drawer = createDrawerNavigator();
 export function RootDrawerNavigator() {
   const handleEmergencyCall = () => {
-    const phoneNumber = '190'; // Número de emergência
+    const phoneNumber = '192'; // Número de emergência
 
     Linking.openURL(`tel:${phoneNumber}`);
   };
